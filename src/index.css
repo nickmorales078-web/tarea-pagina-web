@@ -1,0 +1,116 @@
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;0,900;1,400&family=Inter:wght@300;400;500;600&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Guatemala TREATS — design system
+   Paleta: marrón cacao, rojo cereza, crema, beige cálido.
+   Todas las colores en HSL.
+*/
+
+@layer base {
+  :root {
+    /* Crema cálida de fondo */
+    --background: 30 35% 94%;
+    --foreground: 20 40% 15%;
+
+    --card: 28 40% 96%;
+    --card-foreground: 20 40% 15%;
+
+    --popover: 28 40% 96%;
+    --popover-foreground: 20 40% 15%;
+
+    /* Rojo cereza profundo (acento principal) */
+    --primary: 358 65% 38%;
+    --primary-foreground: 30 40% 96%;
+
+    /* Marrón cacao */
+    --secondary: 22 45% 22%;
+    --secondary-foreground: 30 40% 96%;
+
+    --muted: 30 25% 88%;
+    --muted-foreground: 22 20% 35%;
+
+    /* Beige nav */
+    --accent: 32 35% 86%;
+    --accent-foreground: 22 45% 22%;
+
+    --destructive: 358 75% 45%;
+    --destructive-foreground: 30 40% 96%;
+
+    --border: 28 25% 80%;
+    --input: 28 25% 80%;
+    --ring: 358 65% 38%;
+
+    --radius: 1rem;
+
+    /* Gradientes y sombras del tema */
+    --gradient-cocoa: linear-gradient(135deg, hsl(22 50% 28%), hsl(15 55% 18%));
+    --gradient-cherry: linear-gradient(135deg, hsl(358 65% 42%), hsl(350 70% 32%));
+    --gradient-cream: linear-gradient(180deg, hsl(30 40% 96%), hsl(28 35% 90%));
+
+    --shadow-warm: 0 20px 50px -20px hsl(22 45% 22% / 0.35);
+    --shadow-card: 0 10px 30px -15px hsl(358 65% 38% / 0.25);
+    --shadow-soft: 0 4px 20px -8px hsl(22 45% 22% / 0.15);
+
+    --transition-smooth: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  .dark {
+    --background: 20 30% 10%;
+    --foreground: 30 40% 96%;
+    --card: 22 35% 14%;
+    --card-foreground: 30 40% 96%;
+    --popover: 22 35% 14%;
+    --popover-foreground: 30 40% 96%;
+    --primary: 358 70% 55%;
+    --primary-foreground: 20 30% 10%;
+    --secondary: 30 35% 20%;
+    --secondary-foreground: 30 40% 96%;
+    --muted: 22 25% 18%;
+    --muted-foreground: 30 25% 70%;
+    --accent: 22 25% 18%;
+    --accent-foreground: 30 40% 96%;
+    --destructive: 358 75% 50%;
+    --destructive-foreground: 30 40% 96%;
+    --border: 22 25% 22%;
+    --input: 22 25% 22%;
+    --ring: 358 70% 55%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground font-sans antialiased;
+    font-feature-settings: "ss01", "cv01";
+  }
+  h1, h2, h3, h4 {
+    @apply font-serif;
+  }
+}
+
+@layer utilities {
+  .text-balance { text-wrap: balance; }
+  .bg-cocoa { background: var(--gradient-cocoa); }
+  .bg-cherry { background: var(--gradient-cherry); }
+  .bg-cream { background: var(--gradient-cream); }
+  .shadow-warm { box-shadow: var(--shadow-warm); }
+  .shadow-card-warm { box-shadow: var(--shadow-card); }
+  .shadow-soft { box-shadow: var(--shadow-soft); }
+  .transition-smooth { transition: var(--transition-smooth); }
+}
+
+@keyframes float-slow {
+  0%, 100% { transform: translateY(0px) rotate(0deg); }
+  50% { transform: translateY(-12px) rotate(2deg); }
+}
+@keyframes fade-up {
+  from { opacity: 0; transform: translateY(24px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+.animate-float-slow { animation: float-slow 6s ease-in-out infinite; }
+.animate-fade-up { animation: fade-up 0.8s cubic-bezier(0.4, 0, 0.2, 1) both; }
