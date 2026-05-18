@@ -5,6 +5,9 @@ import { componentTagger } from "lovable-tagger";
 
 // https://vitejs.dev/config/
 export default defineConfig(({ mode }) => ({
+  // Ruta base indispensable para que GitHub Pages encuentre tus archivos
+  base: "/tarea-pagina-web/",
+  
   server: {
     host: "::",
     port: 8080,
